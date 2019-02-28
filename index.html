@@ -18,13 +18,15 @@
     <div id="mapid" style="width: auto; height: auto; min-height:100%;"></div>
     <script>
 
-        var mymap = L.map('mapid').setView([51.505, -0.09], 13);
+        var mymap = L.map('mapid').setView([0, 0], 2);
+        mymap.setMaxBounds(mymap.getBounds());
 
         L.tileLayer('atlas-map/{z}/{x}/{y}.png', {
-            maxZoom: 5,
+            maxZoom: 4,
             attribution: 'Map data &copy; Capex, ' +
                 'Imagery © Hudson Bay',
-            id: 'mapbox.streets'
+            id: 'mapbox.streets',
+            noWrap: true
         }).addTo(mymap);
 
         var marker = L.marker([51.5, -0.09]).addTo(mymap);
